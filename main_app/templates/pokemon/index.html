@@ -2,7 +2,7 @@
 {% block content %}
 
 <h1> SHOWING ALL POKEMON</h1>
-
+<div class='container-card'>
 {% for poke in pokemon %}
 <div class="card" style="width: 18rem;">
     <img src="https://i.pinimg.com/originals/fd/18/c6/fd18c6d26d4d9d26a0bd9d1a2fb2bd04.png" class="card-img-top" alt="...">
@@ -20,6 +20,6 @@
       <li class="list-group-item" id='bolder'>AVERAGE: {{ poke.average }}</li>
     </ul>
   </div>
-{% endfor %}
-
+  {% endfor %}
+</div>
 {% endblock %}

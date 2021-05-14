@@ -27,7 +27,7 @@ class Pokemon:
 pokemon = [
     Pokemon('Charizard', 78, 84, 78, 109, 85, 100),
     Pokemon('Blastoise', 79, 83, 100, 85, 105, 78),
-    Pokemon('Jigglypuff', 115, 45, 20, 45, 25, 20)
+    Pokemon('Jigglypuff', 115, 45, 20, 45, 25, 20),
 ]
 
 
