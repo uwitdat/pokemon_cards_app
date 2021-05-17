@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1> SHOWING {{ poke.name }} DETAILS</h1>
+<div class='container-card'>
+
+<div class="card carousel-item active" style="width: 18rem;">
+    <img src="https://i.pinimg.com/originals/fd/18/c6/fd18c6d26d4d9d26a0bd9d1a2fb2bd04.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ poke.name }}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">TYPE: <span class='poke-type'>{{ poke.type }}</span></li>
+      <li class="list-group-item">HP: {{ poke.hp }}</li>
+      <li class="list-group-item">ATTACK: {{ poke.attack }}</li>
+      <li class="list-group-item">DEFENSE: {{ poke.defense }}</li>
+      <li class="list-group-item">SP ATTACK: {{ poke.sp_attack }}</li>
+      <li class="list-group-item">SP DEFENSE: {{ poke.sp_defense }}</li>
+      <li class="list-group-item">SPEED: {{ poke.speed }}</li>
+      <li class="list-group-item" id='bolder'>TOTAL: {{ poke.total }}</li>
+      <li class="list-group-item" id='bolder'>AVERAGE: {{ poke.average }}</li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

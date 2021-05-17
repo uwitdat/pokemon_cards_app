@@ -4,12 +4,33 @@
 <h1> SHOWING ALL POKEMON</h1>
 <div class='container-card'>
 {% for poke in pokemon %}
-<div class="card" style="width: 18rem;">
-    <img src="https://i.pinimg.com/originals/fd/18/c6/fd18c6d26d4d9d26a0bd9d1a2fb2bd04.png" class="card-img-top" alt="...">
+<div class="card carousel-item active" style="width: 18rem;">
+    <a href="{% url 'detail' poke.id %}"><img src="https://i.pinimg.com/originals/fd/18/c6/fd18c6d26d4d9d26a0bd9d1a2fb2bd04.png" class="card-img-top" alt="..."></a>
     <div class="card-body">
       <h5 class="card-title">{{ poke.name }}</h5>
     </div>
     <ul class="list-group list-group-flush">
+      {% if poke.type == 'water' %}
+      <li class="list-group-item">TYPE: <span class='poke-type poke-type-water'>{{ poke.type }}</span></li>
+      {% endif %}
+      {% if poke.type == 'bug' %}
+      <li class="list-group-item">TYPE: <span class='poke-type poke-type-bug'>{{ poke.type }}</span></li>
+      {% endif %}
+      {% if poke.type == 'flying' %}
+      <li class="list-group-item">TYPE: <span class='poke-type poke-type-flying'>{{ poke.type }}</span></li>
+      {% endif %}
+      {% if poke.type == 'poison' %}
+      <li class="list-group-item">TYPE: <span class='poke-type poke-type-poison'>{{ poke.type }}</span></li>
+      {% endif %}
+      {% if poke.type == 'electric' %}
+      <li class="list-group-item">TYPE: <span class='poke-type poke-type-electric'>{{ poke.type }}</span></li>
+      {% endif %}
+      {% if poke.type == 'grass' %}
+      <li class="list-group-item">TYPE: <span class='poke-type poke-type-grass'>{{ poke.type }}</span></li>
+      {% endif %}
+      {% if poke.type == 'fire' %}
+      <li class="list-group-item">TYPE: <span class='poke-type poke-type-fire'>{{ poke.type }}</span></li>
+      {% endif %}
       <li class="list-group-item">HP: {{ poke.hp }}</li>
       <li class="list-group-item">ATTACK: {{ poke.attack }}</li>
       <li class="list-group-item">DEFENSE: {{ poke.defense }}</li>
@@ -19,6 +40,7 @@
       <li class="list-group-item" id='bolder'>TOTAL: {{ poke.total }}</li>
       <li class="list-group-item" id='bolder'>AVERAGE: {{ poke.average }}</li>
     </ul>
+
   </div>
   {% endfor %}
 </div>
