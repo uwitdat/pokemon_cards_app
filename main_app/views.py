@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Pokemon
 from .forms import AbillityForm
 
@@ -30,3 +30,18 @@ def add_ability(request, poke_id):
         new_ability.poke_id = poke_id
         new_ability.save()
     return redirect('detail', poke_id=poke_id)
+
+
+class PokemonCreate(CreateView):
+    model = Pokemon
+    fields = '__all__'
+
+
+class PokemonUpdate(UpdateView):
+    model = Pokemon
+    fields = '__all__'
+
+
+class PokemonDelete(DeleteView):
+    model = Pokemon
+    success_url = '/pokemon/'

@@ -40,14 +40,14 @@
       <li class="list-group-item" id='bolder'>TOTAL: {{ poke.total }}</li>
       <li class="list-group-item" id='bolder'>AVERAGE: {{ poke.average }}</li>
     </ul>
-    <a class="btn btn-primary" href="#" role="button">Edit</a>
-    <a class="btn btn-primary" href="#" role="button">Delete</a>
+    <a class="btn btn-primary" href="{% url 'pokemon_update' poke.id %}" role="button">Edit</a>
+    <a class="btn btn-primary" href="{% url 'pokemon_delete' poke.id %}" role="button">Delete</a>
   </div>
 
 
 
   <div class='row'>
-    <div class='col-sm-1'></div>
+    <div class='col-sm-12'></div>
     <form action="{% url 'add_ability' poke.id %}"method="post">
       {% csrf_token %}
       {{ ability_form.as_p }}
@@ -69,8 +69,8 @@
           {% for ability in poke.ability_set.all %}
           <tr>
             <td>{{ability.get_ability_display}}</td>
-            <td>...</td>
-            <td>#</td>
+            <td>{{ability.power}}</td>
+            <td>{{ability.accuracy}}%</td>
           </tr>
           {% endfor %}
         </tbody>

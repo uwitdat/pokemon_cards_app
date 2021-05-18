@@ -129,3 +129,11 @@ table {
   background-color: rgb(47, 143, 187);
   border: 1px solid rgb(47, 143, 187);
 }
+
+label {
+  font-size: larger;
+}
+
+tbody {
+  border: 1px solid transparent;
+}

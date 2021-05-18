@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+import random
 
 # Create your models here.
 ABILITIES = (
@@ -39,6 +41,9 @@ class Pokemon(models.Model):
             self.sp_attack + self.sp_defense + self.speed
         return total
 
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'poke_id': self.id})
+
     class Meta:
         ordering = ['name']
 
@@ -54,3 +59,12 @@ class Ability(models.Model):
 
     def __str__(self):
         return f'{self.get_ability_display()}'
+
+    def power(self):
+        power = self.poke.total()
+        rand_num = random.randint(50, power)
+        return rand_num
+
+    def accuracy(self):
+        rand_num = random.randint(10, 100)
+        return rand_num
