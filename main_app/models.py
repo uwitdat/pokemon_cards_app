@@ -1,6 +1,14 @@
 from django.db import models
 
 # Create your models here.
+ABILITIES = (
+    ('A', 'Growl'),
+    ('B', 'Take Down'),
+    ('C', 'Tackle'),
+    ('D', 'Rest'),
+    ('E', 'Protect'),
+    ('F', 'Special Attack'),
+)
 
 
 class Pokemon(models.Model):
@@ -30,3 +38,16 @@ class Pokemon(models.Model):
         total = self.hp + self.attack + self.defense + \
             self.sp_attack + self.sp_defense + self.speed
         return total
+
+
+class Ability(models.Model):
+    ability = models.CharField(
+        max_length=1,
+        choices=ABILITIES,
+        default=ABILITIES[0][0]
+    )
+
+    poke = models.ForeignKey(Pokemon, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.get_ability_display()}'

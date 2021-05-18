@@ -10,7 +10,27 @@
       <h5 class="card-title">{{ poke.name }}</h5>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">TYPE: <span class='poke-type'>{{ poke.type }}</span></li>
+      {% if poke.type == 'water' %}
+      <li class="list-group-item">TYPE: <span class='poke-type poke-type-water'>{{ poke.type }}</span></li>
+      {% endif %}
+      {% if poke.type == 'bug' %}
+      <li class="list-group-item">TYPE: <span class='poke-type poke-type-bug'>{{ poke.type }}</span></li>
+      {% endif %}
+      {% if poke.type == 'flying' %}
+      <li class="list-group-item">TYPE: <span class='poke-type poke-type-flying'>{{ poke.type }}</span></li>
+      {% endif %}
+      {% if poke.type == 'poison' %}
+      <li class="list-group-item">TYPE: <span class='poke-type poke-type-poison'>{{ poke.type }}</span></li>
+      {% endif %}
+      {% if poke.type == 'electric' %}
+      <li class="list-group-item">TYPE: <span class='poke-type poke-type-electric'>{{ poke.type }}</span></li>
+      {% endif %}
+      {% if poke.type == 'grass' %}
+      <li class="list-group-item">TYPE: <span class='poke-type poke-type-grass'>{{ poke.type }}</span></li>
+      {% endif %}
+      {% if poke.type == 'fire' %}
+      <li class="list-group-item">TYPE: <span class='poke-type poke-type-fire'>{{ poke.type }}</span></li>
+      {% endif %}
       <li class="list-group-item">HP: {{ poke.hp }}</li>
       <li class="list-group-item">ATTACK: {{ poke.attack }}</li>
       <li class="list-group-item">DEFENSE: {{ poke.defense }}</li>
@@ -20,6 +40,35 @@
       <li class="list-group-item" id='bolder'>TOTAL: {{ poke.total }}</li>
       <li class="list-group-item" id='bolder'>AVERAGE: {{ poke.average }}</li>
     </ul>
+    <a class="btn btn-primary" href="#" role="button">Edit</a>
+    <a class="btn btn-primary" href="#" role="button">Delete</a>
   </div>
+
+
+
+  <div class='row'>
+    <div class='col-sm-1'></div>
+      <table id='table' class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ABILITY</th>
+            <th scope="col">POWER</th>
+            <th scope="col">ACCURACY</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for ability in poke.ability_set.all %}
+          <tr>
+            <td>{{ability.get_ability_display}}</td>
+            <td>...</td>
+            <td>#</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
 </div>
+
 {% endblock %}
