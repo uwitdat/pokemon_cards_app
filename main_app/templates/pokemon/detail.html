@@ -48,6 +48,15 @@
 
   <div class='row'>
     <div class='col-sm-1'></div>
+    <form action="{% url 'add_ability' poke.id %}"method="post">
+      {% csrf_token %}
+      {{ ability_form.as_p }}
+      <input type='submit' class='btn btn-primary' value='Add Ability'>
+    </form>
+
+
+
+
       <table id='table' class="table table-striped">
         <thead>
           <tr>

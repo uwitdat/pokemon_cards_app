@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Pokemon
+from .forms import AbillityForm
 
 
 def home(request):
@@ -18,4 +19,14 @@ def pokemon_index(request):
 
 def pokemon_detail(request, poke_id):
     poke = Pokemon.objects.get(id=poke_id)
-    return render(request, 'pokemon/detail.html', {'poke': poke})
+    ability_form = AbillityForm()
+    return render(request, 'pokemon/detail.html', {'poke': poke, 'ability_form': ability_form})
+
+
+def add_ability(request, poke_id):
+    form = AbillityForm(request.POST)
+    if form.is_valid():
+        new_ability = form.save(commit=False)
+        new_ability.poke_id = poke_id
+        new_ability.save()
+    return redirect('detail', poke_id=poke_id)

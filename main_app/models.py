@@ -39,6 +39,9 @@ class Pokemon(models.Model):
             self.sp_attack + self.sp_defense + self.speed
         return total
 
+    class Meta:
+        ordering = ['name']
+
 
 class Ability(models.Model):
     ability = models.CharField(
