@@ -31,6 +31,8 @@
               <a id='text' class="nav-link" href="{% url 'index' %}">View Pokemon</a>
               <a id='text' class="nav-link" href="{% url 'logout' %}">Log Out</a>
               {% else %}
+              <a id='text' class="nav-link" href="{% url 'index' %}">View Pokemon</a>
+              <a id='text' class="nav-link" href="{% url 'items_index' %}">Items </a>
               <a id='text' class="nav-link" href="{% url 'login' %}">Log In</a>
               <a id='text' class="nav-link" href="{% url 'signup' %}">Sign Up</a>
               {% endif %}
