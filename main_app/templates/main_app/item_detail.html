@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>{{item.name}} Details</h1>
+<div class='container-card'>
+    <div class="card" style="width: 16rem;">
+        <a href=""><img src="https://www.pngitem.com/pimgs/m/2-25193_pokemon-ball-transparent-background-transparent-background-pokeball-png.png" class="card-img-top"></a>
+        <div class="card-body">
+          <h5 class="card-title">{{ item.name }}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+    
+          <li class="list-group-item">HP: {{ item.description }}</li>
+            </ul>
+        <a class="btn btn-primary" href="{% url 'items_update' item.id %}" role="button">Edit</a>
+        <a class="btn btn-primary" href="{% url 'items_delete' item.id %}" role="button">Delete</a>    
+      </div>
+    </div>
+
+
+{% endblock %}

@@ -17,5 +17,20 @@ urlpatterns = [
          views.PokemonDelete.as_view(), name='pokemon_delete'),
 
     path('pokemon/<int:poke_id>/add_ability/',
-         views.add_ability, name='add_ability')
+         views.add_ability, name='add_ability'),
+
+    path('items/', views.ItemList.as_view(), name='items_index'),
+
+    path('items/<int:pk>/', views.ItemDetail.as_view(), name='items_detail'),
+
+    path('items/create/', views.ItemCreate.as_view(), name='items_create'),
+
+    path('items/<int:pk>/update/', views.ItemUpdate.as_view(), name='items_update'),
+
+    path('items/<int:pk>/delete/', views.ItemDelete.as_view(), name='items_delete'),
+
+    path('pokemon/<int:poke_id>/assoc_item/<int:item_id>/',
+         views.assoc_item, name='assoc_item'),
+
+
 ]

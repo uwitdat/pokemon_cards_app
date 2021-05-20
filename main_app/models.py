@@ -13,6 +13,20 @@ ABILITIES = (
 )
 
 
+class Item(models.Model):
+    name = models.CharField(max_length=50)
+    description = models.CharField(
+        max_length=150,
+        default='none'
+    )
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('items_detail', kwargs={'pk': self.id})
+
+
 class Pokemon(models.Model):
     name = models.CharField(max_length=100)
     type = models.CharField(max_length=100, default='none')
@@ -22,6 +36,7 @@ class Pokemon(models.Model):
     sp_attack = models.IntegerField()
     sp_defense = models.IntegerField()
     speed = models.IntegerField()
+    items = models.ManyToManyField(Item)
 
     def __str__(self):
         return self.name

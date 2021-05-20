@@ -4,7 +4,7 @@
 <h1> SHOWING {{ poke.name }} DETAILS</h1>
 <div class='container-card'>
 
-<div class="card carousel-item active" style="width: 18rem;">
+<div class="card" style="width: 18rem;">
     <img src="https://i.pinimg.com/originals/fd/18/c6/fd18c6d26d4d9d26a0bd9d1a2fb2bd04.png" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">{{ poke.name }}</h5>
@@ -77,7 +77,44 @@
       </table>
     </div>
   </div>
-
 </div>
+
+
+
+  <h3> Items for {{poke.name}}: </h3>
+  {% if poke.items.count %}
+    {% for item in poke.items.all %}
+  <div class="card" style="width: 16rem;">
+    <img src="https://www.pngitem.com/pimgs/m/2-25193_pokemon-ball-transparent-background-transparent-background-pokeball-png.png" class="card-img-top" alt="pokeball">
+    <div class="card-body">
+      <h5 class="card-title">{{ item.name }}</h5>
+      <p class="card-text">{{ item.description }}</p>
+    </div>
+    {% endfor %}
+  {% else %}
+  </div>
+  <h3>Currently {{poke.name }} has no items</h3>
+  {% endif %}
+
+  <h3> Add an Item:</h3>
+  {% if items.count %}
+    {% for item in items.all %}
+  <div class="card" style="width: 16rem;">
+    <img src="https://www.pngitem.com/pimgs/m/2-25193_pokemon-ball-transparent-background-transparent-background-pokeball-png.png" class="card-img-top" alt="pokeball">
+    <div class="card-body">
+      <h5 class="card-title">{{ item.name }}</h5>
+      <p class="card-text">{{ item.description }}</p>
+    </div>
+    <form action="{% url 'assoc_item' poke.id item.id %}" method='POST'>
+      {% csrf_token %}
+      <button type='submit' class='btn btn-primary'>Add</button>
+    </form>
+    {% endfor %}
+  {% else %}
+  <h3>{{ poke.name }} Has every item</h3>
+</div>
+  {% endif %}
+
+
 
 {% endblock %}
