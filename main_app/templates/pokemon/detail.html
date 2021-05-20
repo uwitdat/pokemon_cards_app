@@ -39,6 +39,7 @@
       <li class="list-group-item">SPEED: {{ poke.speed }}</li>
       <li class="list-group-item" id='bolder'>TOTAL: {{ poke.total }}</li>
       <li class="list-group-item" id='bolder'>AVERAGE: {{ poke.average }}</li>
+      <li class="list-group-item" id='bolder'>POKEMASTER: {{ poke.user }}</li>
     </ul>
     <a class="btn btn-primary" href="{% url 'pokemon_update' poke.id %}" role="button">Edit</a>
     <a class="btn btn-primary" href="{% url 'pokemon_delete' poke.id %}" role="button">Delete</a>
@@ -46,8 +47,7 @@
 
 
 
-  <div class='row'>
-    <div class='col-sm-12'></div>
+
     <form action="{% url 'add_ability' poke.id %}"method="post">
       {% csrf_token %}
       {{ ability_form.as_p }}
@@ -75,9 +75,8 @@
           {% endfor %}
         </tbody>
       </table>
-    </div>
-  </div>
-</div>
+
+
 
 
 
@@ -114,7 +113,7 @@
   <h3>{{ poke.name }} Has every item</h3>
 </div>
   {% endif %}
-
+</div>
 
 
 {% endblock %}

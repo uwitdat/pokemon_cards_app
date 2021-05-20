@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 import random
+from django.contrib.auth.models import User
 
 # Create your models here.
 ABILITIES = (
@@ -37,6 +38,7 @@ class Pokemon(models.Model):
     sp_defense = models.IntegerField()
     speed = models.IntegerField()
     items = models.ManyToManyField(Item)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -58,6 +60,10 @@ class Pokemon(models.Model):
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'poke_id': self.id})
+
+    def upper(self):
+        upper = self.user.upper()
+        return upper
 
     class Meta:
         ordering = ['name']

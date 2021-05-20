@@ -3,6 +3,7 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
@@ -32,5 +33,5 @@ urlpatterns = [
     path('pokemon/<int:poke_id>/assoc_item/<int:item_id>/',
          views.assoc_item, name='assoc_item'),
 
-
+    path('accounts/signup/', views.signup, name='signup'),
 ]
