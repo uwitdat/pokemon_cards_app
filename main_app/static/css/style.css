@@ -5,8 +5,8 @@ body {
 #text {
   color: rgb(255, 255, 255);
   text-align: center;
-  margin-left: 10vw;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  padding-left: 3rem;
 }
 
 #text:hover {
@@ -15,7 +15,6 @@ body {
 
 #nav-text {
   color: rgb(255, 255, 255);
-  font-size: 1.4rem;
 }
 
 h1 {
