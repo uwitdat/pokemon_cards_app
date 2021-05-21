@@ -64,13 +64,14 @@ li {
 }
 
 img {
-  background-color: rgb(40, 123, 161);
   border: 2px solid #fff;
   transition: transform 0.4s;
+  height: 17rem;
+  object-fit: fill;
+  background-color: beige;
 }
 
 img:hover {
-  background-color: rgb(47, 143, 187);
   transform: scale(1.05);
 }
 

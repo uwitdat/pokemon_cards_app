@@ -16,8 +16,8 @@ ABILITIES = (
 
 class Item(models.Model):
     name = models.CharField(max_length=50)
-    description = models.CharField(
-        max_length=150,
+    description = models.TextField(
+        max_length=250,
         default='none'
     )
 
@@ -39,6 +39,7 @@ class Pokemon(models.Model):
     speed = models.IntegerField()
     items = models.ManyToManyField(Item)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    image = models.ImageField(blank=True, null=True, upload_to='images/')
 
     def __str__(self):
         return self.name

@@ -5,7 +5,7 @@
 <div class='container-card'>
 {% for poke in pokemon %}
 <div class="card carousel-item active" style="width: 18rem;">
-    <a href="{% url 'detail' poke.id %}"><img src="https://i.pinimg.com/originals/fd/18/c6/fd18c6d26d4d9d26a0bd9d1a2fb2bd04.png" class="card-img-top" alt="..."></a>
+    <a href="{% url 'detail' poke.id %}"><img src="{{ poke.image.url }}" class="card-img-top" alt="..."></a>
     <div class="card-body">
       <h5 class="card-title">{{ poke.name }}</h5>
     </div>

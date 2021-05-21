@@ -5,12 +5,12 @@
 
 <!--MAIN DIV CONTAINER-->
 
-<div class='row'>
-  <div class='col-4'>
+<div class='container-card'>
+
   <!-- MAIN POKEMON CARD-->
 
   <div class="card" style="width: 18rem;">
-    <img src="https://i.pinimg.com/originals/fd/18/c6/fd18c6d26d4d9d26a0bd9d1a2fb2bd04.png" class="card-img-top" alt="...">
+    <img src="{{ poke.image.url }}" class="card-img-top" alt="...">
     
     <div class="card-body">
       <h5 class="card-title">{{ poke.name }}</h5>
@@ -49,13 +49,13 @@
       <a class="btn btn-primary" href="{% url 'pokemon_update' poke.id %}" role="button">Edit</a>
       <a class="btn btn-primary" href="{% url 'pokemon_delete' poke.id %}" role="button">Delete</a>
   </div>
-</div>
+
   <!-- ADD ABILITY FORM-->
 
   
   
   <!-- ABILITY DISPLAY TABLE-->
-  <div class='col-8'>
+
     <table id='table' class="table table-striped">
       <thead>
         <tr>
@@ -74,13 +74,13 @@
         {% endfor %}
       </tbody>
     </table>    
+    <form action="{% url 'add_ability' poke.id %}"method="post">
+      {% csrf_token %}
+      {{ ability_form.as_p }}
+      <input type='submit' class='btn btn-primary' value='Add Ability'>
+    </form>
    
-  <form action="{% url 'add_ability' poke.id %}"method="post">
-    {% csrf_token %}
-    {{ ability_form.as_p }}
-    <input type='submit' class='btn btn-primary' value='Add Ability'>
-  </form>
-</div>
+
 
 </div>
     <!-- POKE ITEMS OWNED-->
@@ -109,11 +109,11 @@
 
   <!-- POKE ITEMS AVAILABLE TO ADD-->
 
+  {% if items.count %}
   <h3> Add an Item:</h3>
   <div class='container-card'>
-  {% if items.count %}
     {% for item in items.all %}
-
+    
   <div class="card" style="width: 16rem;">
     <img src="https://www.pngitem.com/pimgs/m/2-25193_pokemon-ball-transparent-background-transparent-background-pokeball-png.png" class="card-img-top" alt="pokeball">
 

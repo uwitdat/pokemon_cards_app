@@ -12,7 +12,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 class PokemonCreate(LoginRequiredMixin, CreateView):
     model = Pokemon
     fields = ['name', 'type', 'hp', 'attack', 'defense',
-              'sp_attack', 'sp_defense', 'speed']
+              'sp_attack', 'sp_defense', 'speed', 'image']
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -21,7 +21,8 @@ class PokemonCreate(LoginRequiredMixin, CreateView):
 
 class PokemonUpdate(LoginRequiredMixin, UpdateView):
     model = Pokemon
-    fields = '__all__'
+    fields = ['name', 'type', 'hp', 'attack', 'defense',
+              'sp_attack', 'sp_defense', 'speed', 'image']
 
 
 class PokemonDelete(LoginRequiredMixin, DeleteView):
