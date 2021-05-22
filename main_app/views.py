@@ -43,6 +43,7 @@ def pokemon_index(request):
     return render(request, 'pokemon/index.html', {'pokemon': pokemon})
 
 
+@login_required
 def pokemon_detail(request, poke_id):
     poke = Pokemon.objects.get(id=poke_id)
     items_poke_doesnt_have = Item.objects.exclude(
@@ -66,7 +67,7 @@ class ItemList(ListView):
     model = Item
 
 
-class ItemDetail(DetailView):
+class ItemDetail(LoginRequiredMixin, DetailView):
     model = Item
 
 
