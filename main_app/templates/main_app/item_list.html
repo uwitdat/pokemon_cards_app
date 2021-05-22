@@ -4,14 +4,14 @@
 <h1> SHOWING ALL ITEMS</h1>
 <div class='container-card'>
 {% for item in item_list %}
-<div class="card" style="width: 16rem;">
-    <a href="{% url 'items_detail' item.id %}"><img src="https://www.pngitem.com/pimgs/m/2-25193_pokemon-ball-transparent-background-transparent-background-pokeball-png.png" class="card-img-top"></a>
+<div class="card" style="width: 17rem;">
+    <a href="{% url 'items_detail' item.id %}"><img src='{{item.image.url}}' class="card-img-top"></a>
     <div class="card-body">
       <h5 class="card-title">{{ item.name }}</h5>
     </div>
     <ul class="list-group list-group-flush">
 
-      <li class="list-group-item">ABOUT: {{ item.description }}</li>
+      <li class="list-group-item"> {{ item.description }}</li>
 
     </ul>
 

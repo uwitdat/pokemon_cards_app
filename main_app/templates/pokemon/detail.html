@@ -91,8 +91,8 @@
     {% if poke.items.count %}
       {% for item in poke.items.all %}
 
-  <div class="card" style="width: 16rem;">
-    <img src="https://www.pngitem.com/pimgs/m/2-25193_pokemon-ball-transparent-background-transparent-background-pokeball-png.png" class="card-img-top" alt="pokeball">
+  <div class="card" style="width: 17rem;">
+    <img src="{{ item.image.url }}" class="card-img-top" alt="pokeball">
 
     <div class="card-body">
       <h5 class="card-title">{{ item.name }}</h5>
@@ -114,8 +114,8 @@
   <div class='container-card'>
     {% for item in items.all %}
     
-  <div class="card" style="width: 16rem;">
-    <img src="https://www.pngitem.com/pimgs/m/2-25193_pokemon-ball-transparent-background-transparent-background-pokeball-png.png" class="card-img-top" alt="pokeball">
+  <div class="card" style="width: 17rem;">
+    <img src="{{ item.image.url }}" class="card-img-top" alt="pokeball">
 
     <div class="card-body">
       <h5 class="card-title">{{ item.name }}</h5>

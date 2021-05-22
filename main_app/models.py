@@ -16,6 +16,7 @@ ABILITIES = (
 
 class Item(models.Model):
     name = models.CharField(max_length=50)
+    image = models.ImageField(blank=True, null=True, upload_to='images/')
     description = models.TextField(
         max_length=250,
         default='none'
