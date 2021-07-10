@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+import django_heroku
 from pathlib import Path
 import os
 
@@ -26,10 +27,10 @@ SECRET_KEY = '#87b3f#hryo_p2xo9+k1wqd1ey)l29#3@c06wuc^6(s@a_-ua3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['morning-refuge-47296.herokuapp.com']
+ALLOWED_HOSTS = ['morning-refuge-47296.herokuapp.com', 'localhost']
 
 
-# Application definition
+# Application definitionlocalhost
 
 INSTALLED_APPS = [
     'main_app',
@@ -127,3 +128,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 LOGIN_REDIRECT_URL = '/pokemon/'
 
 LOGOUT_REDIRECT_URL = '/'
+
+django_heroku.settings(locals())
