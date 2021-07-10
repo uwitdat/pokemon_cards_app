@@ -26,7 +26,7 @@ SECRET_KEY = '#87b3f#hryo_p2xo9+k1wqd1ey)l29#3@c06wuc^6(s@a_-ua3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://morning-refuge-47296.herokuapp.com/', '127.0.0.1']
+ALLOWED_HOSTS = ['morning-refuge-47296.herokuapp.com/', '127.0.0.1']
 
 
 # Application definition
